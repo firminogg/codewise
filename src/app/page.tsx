@@ -1,32 +1,55 @@
-import { Button } from "@/components/ui/button";
+import {
+  CardTitle,
+  CardDescription,
+  CardHeader,
+  CardContent,
+  Card,
+  CardFooter,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <aside className="bg-black text-white p-6 rounded-lg w-full max-w-lg font-mono">
-        <div className="flex justify-between items-center">
-          <div className="flex space-x-2 text-red-500">
-            <div className="w-3 h-3 rounded-full bg-red-500" />
-            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-            <div className="w-3 h-3 rounded-full bg-green-500" />
-          </div>
-          <p className="text-sm">bash</p>
-        </div>
-        <div className="mt-4 f">
-          <p className="text-green-400">$ login or register</p>
-          <p className="text-white">+ codewise v1.0.0</p>
-          <p className="text-white">
-            added 1 package, and audited 2 packages in 3s
-          </p>
-          <Input placeholder="username" type="email" className="w-full mt-2"></Input>
-          <Input placeholder="password" type="password" className="w-full mt-2"></Input>
-          <Button className="w-full mt-2 mb-2">login</Button>
-        </div>
-        <div className="flex justify-between">
-          <a href="#" className="text-white">registrar-se</a>
-        </div>
-      </aside>
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="flex-1">
+        <Card className="mx-auto max-w-sm flex-1">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl font-bold">Entrar</CardTitle>
+            <CardDescription>
+              Insira seu e-mail abaixo para fazer login na sua conta
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="email">E-mail</Label>
+                <Input
+                  id="email"
+                  placeholder="mail@example.com"
+                  required
+                  type="email"
+                />
+              </div>
+              <div>
+                <Label htmlFor="password">Senha</Label>
+                <Input id="password" required type="password" />
+              </div>
+              <Button className="w-full">Entrar</Button>
+            </div>
+          </CardContent>
+          <CardFooter>
+            <p className="text-center text-sm text-muted-foreground">
+              Não possui uma conta?{" "}
+              <a className="text-black hover:underline" href="#">
+                Crie uma agora!
+              </a>
+            </p>
+          </CardFooter>
+        </Card>
+      </div>
     </div>
   );
 }
+
