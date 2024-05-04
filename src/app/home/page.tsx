@@ -31,7 +31,7 @@ export default async function HomePage() {
       <header className="flex items-center justify-between h-16 px-4 md:px-6 border-b">
         <div className="flex gap-3">
           <Link className="flex items-center gap-2 text-center" href="#">
-            <span className="font-bold">Hello</span>
+            <span className="font-bold">{session.user?.name ?? ""}</span>
             <Avatar className="border dark:border-white">
               <AvatarImage src={session.user?.image ?? ""}></AvatarImage>
             </Avatar>
