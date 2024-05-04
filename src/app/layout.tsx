@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import NextAuthSessionProvider from "@/providers/sessionProvider";
 import { ThemeProvider } from "next-themes";
 
 const inter = Montserrat({ subsets: ["latin"] });
@@ -22,10 +21,8 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
         >
-          <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>
