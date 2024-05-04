@@ -12,60 +12,23 @@ import {
   CircleUser,
 } from "lucide-react";
 import Link from "next/link";
-import { ModeToggle } from "@/components/ModeToggle";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
+import HeaderPage from "@/components/HeaderPage";
+import CursosCategorias from "@/components/CursosCategorias";
 
 export default async function HomePage() {
-  const session = await getServerSession();
-  console.log(session);
+  // const session = await getServerSession();
+  // console.log(session);
 
-  if (!session) {
-    redirect("/");
-  }
+  // if (!session) {
+  //   redirect("/");
+  // }
   return (
     <div>
-      {/* Cabecalho */}
-      <header className="flex items-center justify-between h-16 px-4 md:px-6 border-b">
-        <div className="flex gap-3">
-          <Link className="flex items-center gap-2 text-center" href="#">
-            <span className="font-bold">{session.user?.name ?? ""}</span>
-            <Avatar className="border dark:border-white">
-              <AvatarImage src={session.user?.image ?? ""}></AvatarImage>
-            </Avatar>
-          </Link>
-        </div>
-        <nav className="hidden md:flex items-center gap-4">
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Início
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Sobre
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Planos
-          </Link>
-          <Link
-            className="text-sm font-medium hover:underline underline-offset-4"
-            href="#"
-          >
-            Cursos
-          </Link>
-          <ModeToggle />
-        </nav>
-      </header>
-
+      <HeaderPage />
       {/* Primeira parte */}
       <div className="w-full mt-8">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -267,82 +230,9 @@ export default async function HomePage() {
         <section className="w-full">
           <div className="container grid gap-8 px-4 md:px-6">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center">
-              Linguagens de Programação
+              Categorias de Cursos
             </h2>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">Python</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">NextJS</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">NodeJS</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">HTML e CSS</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">Javascript</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">Lua</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">PHP</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-              <Link
-                className="group grid h-auto w-full justify-start gap-1 rounded-md p-4 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50"
-                href="#"
-              >
-                <div className="text-base font-semibold">Java</div>
-                <div className="text-sm text-gray-500 dark:text-gray-400 flex text-center items-center gap-1">
-                  <CircleChevronRight className="h-4 w-4" /> Ver cursos
-                </div>
-              </Link>
-            </div>
+            <CursosCategorias />
           </div>
         </section>
       </div>
@@ -383,7 +273,8 @@ export default async function HomePage() {
       <div className="flex justify-center items-center mb-12">
         <div>
           <p className="text-sm">
-            © {new Date().getFullYear()} CodeWise. Todos os direitos reservados. Desenvolvido por André
+            © {new Date().getFullYear()} CodeWise. Todos os direitos reservados.
+            Desenvolvido por André
           </p>
         </div>
       </div>
