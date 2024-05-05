@@ -1,23 +1,15 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardFooter,
-  CardHeader,
 } from "@/components/ui/card";
-import {
-  AppWindow,
-  BanIcon,
-  CircleChevronRight,
-  CircleUser,
-} from "lucide-react";
+import { AppWindow, BanIcon, CircleUser } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
 import HeaderPage from "@/components/HeaderPage";
 import CursosCategorias from "@/components/CursosCategorias";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export default async function HomePage() {
   // const session = await getServerSession();
@@ -100,124 +92,6 @@ export default async function HomePage() {
               </p>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div>
-        <Separator className="my-12" />
-      </div>
-
-      {/* Terceira parte */}
-      <div className="">
-        <div className="flex items-center justify-center mb-12">
-          <h1 className="text-4xl font-bold tracking-tightsm:text-5xl md:text-6xl">
-            Planos e Outros
-          </h1>
-        </div>
-        <div className="flex items-center justify-center mb-24 gap-12">
-          {/* Cartão 1 */}
-          <Card>
-            <CardHeader>
-              <h1 className="text-xl">
-                Plano <strong>Gratuito</strong>
-              </h1>
-              <p>
-                Ideal para quem <strong>não sabe nada</strong>
-              </p>
-            </CardHeader>
-            <CardContent>
-              <h3>
-                <span className="text-5xl font-bold">R$ 0,00</span>
-                <span className="text-sm font-medium">/mês</span>
-              </h3>
-
-              <h3>
-                <span>
-                  <span className="text-sm font-medium">Até</span>{" "}
-                  <span className="text-lg font-bold">5 cursos no site</span>
-                </span>
-              </h3>
-            </CardContent>
-            <CardFooter>
-              <div>
-                <Link href="/planos" className="flex">
-                  <Button>Adquirir</Button>
-                  <Button variant="link">Ver sobre</Button>
-                </Link>
-              </div>
-            </CardFooter>
-          </Card>
-
-          {/* Cartão 2 */}
-          <div className="">
-            <Card>
-              <CardHeader>
-                <h1 className="text-xl">
-                  Plano <strong>Médio</strong>
-                </h1>
-                <p>
-                  Ideal para <strong>iniciantes</strong>
-                </p>
-              </CardHeader>
-              <CardContent>
-                <h3>
-                  <span className="text-5xl font-bold">R$ 12,90</span>
-                  <span className="text-sm font-medium">/mês</span>
-                </h3>
-
-                <h3>
-                  <span>
-                    <span className="text-sm font-medium">Até</span>{" "}
-                    <span className="text-lg">
-                      <strong>15 cursos no site</strong>
-                    </span>
-                  </span>
-                </h3>
-              </CardContent>
-              <CardFooter>
-                <div>
-                  <Link href="/planos" className="flex">
-                    <Button>Adquirir</Button>
-                    <Button variant="link">Ver sobre</Button>
-                  </Link>
-                </div>
-              </CardFooter>
-            </Card>
-          </div>
-
-          {/* Cartão 3 */}
-          <Card className="">
-            <CardHeader>
-              <h1 className="text-xl">
-                Plano <strong>Ultra</strong>
-              </h1>
-              <p>
-                Ideal para <strong>programadores</strong> novatos{" "}
-              </p>
-            </CardHeader>
-            <CardContent>
-              <h3>
-                <span className="text-5xl font-bold">R$ 15,90</span>
-                <span className="text-sm font-medium">/mês</span>
-              </h3>
-
-              <h3>
-                <span>
-                  <span className="text-lg font-bold">Todos os Cursos</span>
-                </span>
-              </h3>
-            </CardContent>
-            <CardFooter>
-              <div>
-                <Link href="/planos" className="flex">
-                  <Button className="bg-gradient-to-r from-pink-500 to-purple-500">
-                    Adquirir
-                  </Button>
-                  <Button variant="link">Ver sobre</Button>
-                </Link>
-              </div>
-            </CardFooter>
-          </Card>
         </div>
       </div>
 
