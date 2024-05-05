@@ -12,6 +12,7 @@ import {
   TableBody,
 } from "@/components/ui/table";
 import { HomeIcon, WalletIcon, UsersIcon } from "lucide-react";
+import { getSession } from "next-auth/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -35,7 +36,7 @@ export default function CursoPage() {
           <div className="flex flex-col gap-3">
             <Link href="/admin/dashboard">
               <Button
-                className="w-full flex items-center space-x-2 hover:bg-gray-200 py-2 px-2 rounded-lg text-gray-500"
+                className="w-full flex items-center space-x-2 bg-gray-200 py-2 px-2 rounded-lg text-gray-800"
                 variant="outline"
               >
                 <HomeIcon className="w-4 h-4" />

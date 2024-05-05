@@ -1,16 +1,19 @@
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableHeader,
-  TableRow,
-  TableHead,
-  TableCell,
-  TableBody,
-} from "@/components/ui/table";
-import { HomeIcon, WalletIcon, UsersIcon, TagIcon } from "lucide-react";
+import { HomeIcon, WalletIcon, UsersIcon } from "lucide-react";
+import { getSession } from "next-auth/react";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
+  const session = await getSession();
+  const emailAdmin = "andredd780@gmail.com";
+
+  if (!session) {
+    redirect("/");
+  } else if (emailAdmin !== session.user.email) {
+    redirect("/admin/dashboard");
+  }
+
   return (
     <div className="flex">
       <aside className="sticky top-0 h-screen w-56 bg-gray-100 text-gray-800 p-4">
@@ -21,7 +24,7 @@ export default function AdminDashboard() {
           <div className="flex flex-col gap-3">
             <Link href="/admin/dashboard">
               <Button
-                className="w-full flex items-center space-x-2 bg-gray-200 py-2 px-2 rounded-lg text-gray-800"
+                className="w-full flex items-center space-x-2 hover:bg-gray-200 py-2 px-2 rounded-lg text-gray-500"
                 variant="outline"
               >
                 <HomeIcon className="w-4 h-4" />

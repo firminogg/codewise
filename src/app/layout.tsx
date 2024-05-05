@@ -8,7 +8,7 @@ const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CodeWise",
-  description: "Sistema de Cursos Gratuitos de Program",
+  description: "Plataforma de Cursos Gratuitos",
 };
 
 export default function RootLayout({
