@@ -11,7 +11,7 @@ import {
 import { useEffect, useState } from "react";
 
 export default function CardCurso() {
-  const [cursos, setCursos] = useState();
+  const [cursos, setCursos] = useState<any[]>([]);
   const updateCursos = () => {
     const cursosLocalStorage = JSON.parse(localStorage.getItem("cursos")) || [];
     setCursos(cursosLocalStorage);
