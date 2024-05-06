@@ -1,64 +1,106 @@
-import { Button } from "@/components/ui/button";
-import { HomeIcon, WalletIcon, UsersIcon } from "lucide-react";
-import { getSession } from "next-auth/react";
 import Link from "next/link";
-import { redirect } from "next/navigation";
+import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
+import {
+  ActivityIcon,
+  BarChartIcon,
+  SettingsIcon,
+  UserPlusIcon,
+  UsersIcon,
+  BookDown,
+} from "lucide-react";
+import CardUsers from "@/components/CardUsers";
 
-export default async function AdminDashboard() {
-  const session = await getSession();
-  const emailAdmin = "andredd780@gmail.com";
-
-  if (!session) {
-    redirect("/");
-  } else if (emailAdmin !== session.user.email) {
-    redirect("/admin/dashboard");
-  }
-
+export default function AdminDashboard() {
   return (
-    <div className="flex">
-      <aside className="sticky top-0 h-screen w-56 bg-gray-100 text-gray-800 p-4">
-        <div className="flex items-center mb-4 space-x-1">
-          <h1 className="text-lg font-medium">Painel de Admin</h1>
-        </div>
-        <nav className="space-y-2">
-          <div className="flex flex-col gap-3">
-            <Link href="/admin/dashboard">
-              <Button
-                className="w-full flex items-center space-x-2 hover:bg-gray-200 py-2 px-2 rounded-lg text-gray-500"
-                variant="outline"
-              >
-                <HomeIcon className="w-4 h-4" />
-                <span className="text-sm font-medium">Dashboard</span>
-              </Button>
-            </Link>
-
-            <Link href="/admin/cursos">
-              <Button
-                className="w-full flex items-center space-x-2 hover:bg-gray-200 py-2 px-2 rounded-lg text-gray-500"
-                variant="outline"
-              >
-                <WalletIcon className="w-4 h-4" />
-                <span className="text-sm font-medium">Cursos</span>
-              </Button>
-            </Link>
-
-            <Link href="/admin/contas">
-              <Button
-                className="w-full flex items-center space-x-2 hover:bg-gray-200 py-2 px-2 rounded-lg text-gray-500"
-                variant="outline"
-              >
-                <UsersIcon className="w-4 h-4" />
-                <span className="text-sm font-medium">Contas</span>
-              </Button>
-            </Link>
-          </div>
+    <div className="flex min-h-screen flex-col">
+      <div className="flex flex-1">
+        <nav className="hidden flex-col gap-6 border-r px-4 py-6 md:flex md:w-64 lg:w-72">
+          <Link
+            className="flex items-center gap-2 text-lg font-medium"
+            href="/admin/dashboard"
+          >
+            <UsersIcon className="h-5 w-5" />
+            Usuários
+          </Link>
+          <Link
+            className="flex items-center gap-2 text-lg font-medium"
+            href="/admin/configs"
+          >
+            <SettingsIcon className="h-5 w-5" />
+            Configurações
+          </Link>
+          <Link
+            className="flex items-center gap-2 text-lg font-medium"
+            href="/admin/cursos"
+          >
+            <BarChartIcon className="h-5 w-5" />
+            Cursos
+          </Link>
         </nav>
-      </aside>
-      <main className="flex-grow p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-lg font-medium">Dashboard</h1>
-        </div>
-      </main>
+        <main className="flex-1 p-4 md:p-6">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Usuários Cadastrados
+                </CardTitle>
+                <UsersIcon className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">12,345</div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  +5.2% do que o mês anterior
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Usuários Ativos
+                </CardTitle>
+                <ActivityIcon className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">8,765</div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  +3.1% do que o mês anterior
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Novos Registros
+                </CardTitle>
+                <UserPlusIcon className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">1,234</div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  +8.9% do que o mês anterior
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Cursos Adicionados
+                </CardTitle>
+                <BookDown className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">32</div>
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  +10.5% do que o mês anterior
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          <div>
+            <CardUsers />
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

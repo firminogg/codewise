@@ -1,13 +1,17 @@
 "use client";
 
 import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "./ui/button";
@@ -19,29 +23,26 @@ export default function RemoveCurso() {
   const handleRemove = (event) => {
     event.preventDefault();
 
-    // Recupera a lista de cursos do localStorage
     let cursos = JSON.parse(localStorage.getItem("cursos")) || [];
 
-    // Filtra a lista de cursos, deixando de fora o curso com o ID fornecido
     cursos = cursos.filter((curso) => curso.id !== cursoId);
 
-    // Armazena a lista atualizada no localStorage
     localStorage.setItem("cursos", JSON.stringify(cursos));
 
-    setCursoId(""); // Limpa o campo de ID para a próxima remoção
+    setCursoId("");
   };
 
   return (
     <div className="flex gap-3 my-4">
-      <Dialog>
-        <DialogTrigger asChild>
-          <Button>Remover Curso</Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <form onSubmit={handleRemove}>
-            <DialogHeader>
-              <DialogTitle>Remover Curso da Plataforma</DialogTitle>
-            </DialogHeader>
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <Button variant="outline">Remover Curso</Button>
+        </AlertDialogTrigger>
+        <AlertDialogContent className="sm:max-w-[425px]">
+          <form onSubmit={handleRemove} autoComplete="off">
+            <AlertDialogHeader>
+              <AlertDialogTitle>Remover Curso da Plataforma</AlertDialogTitle>
+            </AlertDialogHeader>
             <div className="grid gap-4 py-2">
               <div className="grid grid-cols-4 items-center gap-4">
                 <Label htmlFor="cursoId">ID do Curso</Label>
@@ -56,17 +57,16 @@ export default function RemoveCurso() {
                 />
               </div>
             </div>
-            <DialogFooter>
-              <Button variant="outline" type="reset">
-                Cancelar
-              </Button>
-              <Button type="submit" onClick={handleRemove}>
-                Remover Curso
-              </Button>
-            </DialogFooter>
+            <AlertDialogDescription>
+              Tem certeza que deseja remover este curso da plataforma?
+            </AlertDialogDescription>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancelar</AlertDialogCancel>
+              <AlertDialogAction>Remover</AlertDialogAction>
+            </AlertDialogFooter>
           </form>
-        </DialogContent>
-      </Dialog>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
