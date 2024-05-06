@@ -61,8 +61,10 @@ export default function RemoveCurso() {
               Tem certeza que deseja remover este curso da plataforma?
             </AlertDialogDescription>
             <AlertDialogFooter>
-              <AlertDialogCancel>Cancelar</AlertDialogCancel>
-              <AlertDialogAction>Remover</AlertDialogAction>
+              <div className="flex gap-2 mt-4">
+                <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                <AlertDialogAction>Remover</AlertDialogAction>
+              </div>
             </AlertDialogFooter>
           </form>
         </AlertDialogContent>
