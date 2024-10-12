@@ -51,7 +51,7 @@
     "lucide-react": "^0.376.0",
     "middleware": "^1.0.0",
     "next": "14.2.3",
-    "next-auth": "^4.24.7",
+    "next-auth": "^4.24.8",
     "next-themes": "^0.3.0",
     "next-video": "^1.0.4",
     "node-telegram-bot-api": "^0.65.1",

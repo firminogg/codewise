@@ -8,7 +8,7 @@ const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CodeWise",
-  description: "Plataforma de Cursos Gratuitos",
+  description: "",
 };
 
 export default function RootLayout({
@@ -19,10 +19,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-        >
+        <ThemeProvider attribute="class" defaultTheme="system">
           {children}
         </ThemeProvider>
       </body>
