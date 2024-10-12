@@ -68,7 +68,7 @@ export default async function HomePage() {
                 <BanIcon className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                you don't pay anything!
+                you dont pay anything!
               </h3>
               <p className="mt-2 text-center text-gray-600 dark:text-gray-400">
                 We host our courses in one place and you can watch them here,
