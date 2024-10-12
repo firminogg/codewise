@@ -14,7 +14,7 @@ export default async function HeaderPage() {
         </Link>
         <Link
           className="text-sm font-medium hover:underline underline-offset-4 hover:font-bold"
-          href="/cursos/"
+          href="/"
         >
           courses
         </Link>
