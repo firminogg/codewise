@@ -2,7 +2,7 @@ import CardCurso from "@/components/CursoCard";
 import { Input } from "@/components/ui/input";
 import { SearchIcon } from "lucide-react";
 
-export default function HtmlCss() {
+export default function ProgrammingPage() {
   const currentDate = new Date().toLocaleDateString();
 
   return (
@@ -28,7 +28,6 @@ export default function HtmlCss() {
           <CardCurso
             titulo="Evento PHP – Rafael Lunardelli, Mayk Brito, Diego Fernandes"
             lancamento="2024"
-            tamanho="empty"
             duracao="6h 10min"
             certificado="no"
             autor="hash"
@@ -39,7 +38,6 @@ export default function HtmlCss() {
           <CardCurso
             titulo="HTML e CSS para Iniciantes - Origamid"
             lancamento="2023"
-            tamanho="5.6 gb"
             duracao="23h 30min"
             certificado="no"
             autor="hash"
@@ -50,7 +48,6 @@ export default function HtmlCss() {
           <CardCurso
             titulo="Formação em Full-Stack – Mayk Brito, Rodrigo Gonçalves"
             lancamento="2024"
-            tamanho="empty"
             duracao="64h 16min"
             certificado="no"
             autor="hash"
@@ -61,7 +58,6 @@ export default function HtmlCss() {
           <CardCurso
             titulo="Formação DevOps – Daniel Rodrigues"
             lancamento="2024"
-            tamanho="empty"
             duracao="19h 37min"
             certificado="no"
             autor="hash"
@@ -72,7 +68,6 @@ export default function HtmlCss() {
           <CardCurso
             titulo="JavaScript Completo ES6 - Origamid"
             lancamento="2024"
-            tamanho="3.5 gb"
             duracao="36h 59min"
             certificado="no"
             autor="hash"

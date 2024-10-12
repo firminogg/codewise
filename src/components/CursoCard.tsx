@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function CardCurso({
   titulo,
   lancamento,
-  tamanho,
   duracao,
   autor,
   escola,
@@ -22,8 +21,6 @@ export default function CardCurso({
           </h3>
           <p className="text-sm ">
             📅| Release: {lancamento}
-            <br />
-            💾| Size: {tamanho}
             <br />
             🕒| Duration: {duracao}
             <br />

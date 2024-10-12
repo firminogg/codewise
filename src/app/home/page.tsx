@@ -18,7 +18,7 @@ export default async function HomePage() {
     <div>
       <HeaderPage />
 
-      <div className="w-full mt-8">
+      <div className="w-full">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
@@ -46,6 +46,7 @@ export default async function HomePage() {
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-end">
               course categories
             </h2>
+            <div className="justify-end"></div>
             <CursosCategorias />
           </div>
         </section>
