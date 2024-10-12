@@ -1,6 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle,} from "./ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 import ButtonLogin from "./ButtonLogin";
 
 export default function LoginFormClient() {
@@ -10,12 +17,12 @@ export default function LoginFormClient() {
         <Card className="mx-auto max-w-sm flex-1">
           <CardHeader className="space-y-1">
             <CardTitle className="text-2xl font-bold">
-              Entrar com GitHub
+              log in to GitHub to access the platform
             </CardTitle>
-            <CardDescription>
-              Abaixo você irá ser redirecionado para o <strong>GitHub</strong>{" "}
-              para realizar o login em nossa plataforma
-            </CardDescription>
+            {/* <CardDescription>
+              below you will be redirected to the <strong>GitHub</strong> to log
+              in to our platform
+            </CardDescription> */}
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -24,12 +31,12 @@ export default function LoginFormClient() {
           </CardContent>
           <CardFooter>
             <p className="text-sm text-muted-foreground">
-              Não possui uma conta?{" "}
+              Not an account?{" "}
               <a
                 href="https://github.com/signup?source=login"
                 className="underline underline-offset-4 hover:text-primary"
               >
-                Crie uma conta
+                create an account
               </a>
             </p>
           </CardFooter>

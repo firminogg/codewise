@@ -1,6 +1,4 @@
 import LoginFormClient from "@/components/LoginForm";
-import HomePage from "./home/page";
-
 import { getSession } from "next-auth/react";
 
 export default async function Home() {
@@ -8,7 +6,5 @@ export default async function Home() {
 
   if (!session) {
     return <LoginFormClient />;
-  } else {
-    <HomePage />;
   }
 }

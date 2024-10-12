@@ -17,6 +17,8 @@
     "postcss.config.mjs": true,
     "next.config.js": true,
 
-    ".env": true
+    ".env": true,
+    ".next": true,
+    ".vscode": true
   }
 }

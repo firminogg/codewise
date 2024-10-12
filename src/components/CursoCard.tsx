@@ -1,30 +1,44 @@
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 
-export default function CardCurso({ titulo, lancamento, tamanho, duracao, autor }) {
+export default function CardCurso({
+  titulo,
+  lancamento,
+  tamanho,
+  duracao,
+  autor,
+  escola,
+  certificado,
+  link,
+}) {
   return (
-    <div className="group relative rounded-lg border border-gray-200 bg-white p-6 shadow-sm hover:border-gray-300 dark:border-gray-800 dark:bg-gray-950 dark:hover:border-gray-700">
+    <div className="shadow-inner shadow-lg shadow-blue-500/50 group relative border rounded-lg p-6 shadow-sm text-sm font-medium transition-colors">
       <div className="flex flex-col justify-between space-y-4">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-50">
-            {titulo.toUpperCase()}
-            <Separator className="my-2"/>
+          <h3 className="text-lg font-semibold">
+            {titulo}
+            <Separator className="my-2" />
           </h3>
-          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
-            📅| Lançamento: {lancamento}	
+          <p className="text-sm ">
+            📅| Release: {lancamento}
             <br />
-            💾| Tamanho: {tamanho}
+            💾| Size: {tamanho}
             <br />
-            🕒| Duração: {duracao}
+            🕒| Duration: {duracao}
             <br />
-            📚| Adicionado por: Admin
+            🏫| Platform: {escola}
           </p>
-        </div>
-        <div className="flex gap-2">
-          <Button size="sm">Assistir Curso</Button>
-          <Button size="sm" variant="outline">
-            Adicionar aos Favoritos
-          </Button>
+          <p className="mt-5 text-sm ">
+            📖| Certificate: {certificado}
+            <br />
+            📚| Added by: {autor}
+          </p>
+          <div className="flex pt-5">
+            <Button>
+              <Link href={link}>watching course</Link>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
