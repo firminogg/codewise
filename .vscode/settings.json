@@ -1,0 +1,22 @@
+{
+  "files.exclude": {
+    "package.json": true,
+    "components.json": true,
+    "package-lock.json": true,
+    ".eslintrc.json": true,
+    "tsconfig.json": true,
+
+    ".gitignore": true,
+    "node_modules": true,
+    "README.md": true,
+
+    "tailwind.config.ts": true,
+    "next-env.d.ts": true,
+
+    "next.config.mjs": true,
+    "postcss.config.mjs": true,
+    "next.config.js": true,
+
+    ".env": true
+  }
+}
